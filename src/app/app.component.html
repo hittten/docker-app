@@ -1,0 +1,634 @@
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+<!-- * * * * * * * * * * * The content below * * * * * * * * * * * -->
+<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * -->
+<!-- * * * * * * * * * * and can be replaced. * * * * * * * * * * * -->
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+<!-- * * * * * * * * * Delete the template below * * * * * * * * * * -->
+<!-- * * * * * * * to get started with your project! * * * * * * * * -->
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+
+<style>
+  :host {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-size: 14px;
+    color: #333;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin: 8px 0;
+  }
+
+  p {
+    margin: 0;
+  }
+
+  .spacer {
+    flex: 1;
+  }
+
+  .toolbar {
+    height: 60px;
+    margin: -8px;
+    display: flex;
+    align-items: center;
+    background-color: #1976d2;
+    color: white;
+    font-weight: 600;
+  }
+
+  .toolbar img {
+    margin: 0 16px;
+  }
+
+  .toolbar #logo {
+    display: block;
+    margin-left: 16px;
+    width: 150px;
+    fill: white;
+  }
+
+  .toolbar #twitter-logo {
+    height: 40px;
+    margin: 0 16px;
+  }
+
+  .toolbar #twitter-logo:hover {
+    opacity: 0.8;
+  }
+
+  .content {
+    display: flex;
+    margin: 32px auto;
+    padding: 0 16px;
+    max-width: 960px;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  svg.material-icons {
+    height: 24px;
+    width: auto;
+  }
+
+  svg.material-icons:not(:last-child) {
+    margin-right: 8px;
+  }
+
+  .card svg.material-icons path {
+    fill: #888;
+  }
+
+  .card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 16px;
+  }
+
+  .card {
+    border-radius: 4px;
+    border: 1px solid #eee;
+    background-color: #fafafa;
+    height: 40px;
+    width: 200px;
+    margin: 0 8px 16px;
+    padding: 16px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.2s ease-in-out;
+    line-height: 24px;
+  }
+
+  .card-container .card:not(:last-child) {
+    margin-right: 0;
+  }
+
+  .card.card-small {
+    height: 16px;
+    width: 168px;
+  }
+
+  .card-container .card:not(.highlight-card) {
+    cursor: pointer;
+  }
+
+  .card-container .card:not(.highlight-card):hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 17px rgba(black, 0.35);
+  }
+
+  .card-container .card:not(.highlight-card):hover .material-icons path {
+    fill: rgb(105, 103, 103);
+  }
+
+  .card.highlight-card {
+    background-color: #1976d2;
+    color: white;
+    font-weight: 600;
+    border: none;
+    width: auto;
+    min-width: 30%;
+    position: relative;
+  }
+
+  .card.card.highlight-card span {
+    margin-left: 60px;
+  }
+
+  svg#rocket {
+    width: 80px;
+    position: absolute;
+    left: -10px;
+    top: -24px;
+  }
+
+  svg#rocket-smoke {
+    height: 100vh;
+    position: absolute;
+    top: 10px;
+    right: 180px;
+    z-index: -10;
+  }
+
+  a,
+  a:visited,
+  a:hover {
+    color: #1976d2;
+    text-decoration: none;
+  }
+
+  a:hover {
+    color: #125699;
+  }
+
+  .terminal {
+    position: relative;
+    width: 80%;
+    max-width: 600px;
+    border-radius: 6px;
+    padding-top: 45px;
+    margin-top: 8px;
+    overflow: hidden;
+    background-color: rgb(15, 15, 16);
+  }
+
+  .terminal::before {
+    content: "\2022 \2022 \2022";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 4px;
+    background: rgb(58, 58, 58);
+    color: #c2c3c4;
+    width: 100%;
+    font-size: 2rem;
+    line-height: 0;
+    padding: 14px 0;
+    text-indent: 4px;
+  }
+
+  .terminal pre {
+    font-family: SFMono-Regular,Consolas,Liberation Mono,Menlo,monospace;
+    color: white;
+    padding: 0 1rem 1rem;
+    margin: 0;
+  }
+
+  .circle-link {
+    height: 40px;
+    width: 40px;
+    border-radius: 40px;
+    margin: 8px;
+    background-color: white;
+    border: 1px solid #eeeeee;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    transition: 1s ease-out;
+  }
+
+  .circle-link:hover {
+    transform: translateY(-0.25rem);
+    box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
+  }
+
+  footer {
+    margin-top: 8px;
+    display: flex;
+    align-items: center;
+    line-height: 20px;
+  }
+
+  footer a {
+    display: flex;
+    align-items: center;
+  }
+
+  .github-star-badge {
+    color: #24292e;
+    display: flex;
+    align-items: center;
+    font-size: 12px;
+    padding: 3px 10px;
+    border: 1px solid rgba(27,31,35,.2);
+    border-radius: 3px;
+    background-image: linear-gradient(-180deg,#fafbfc,#eff3f6 90%);
+    margin-left: 4px;
+    font-weight: 600;
+    font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol;
+  }
+
+  .github-star-badge:hover {
+    background-image: linear-gradient(-180deg,#f0f3f6,#e6ebf1 90%);
+    border-color: rgba(27,31,35,.35);
+    background-position: -.5em;
+  }
+
+  .github-star-badge .material-icons {
+    height: 16px;
+    width: 16px;
+    margin-right: 4px;
+  }
+
+  svg#clouds {
+    position: fixed;
+    bottom: -160px;
+    left: -230px;
+    z-index: -10;
+    width: 1920px;
+  }
+
+
+  /* Responsive Styles */
+  @media screen and (max-width: 767px) {
+
+    .card-container > *:not(.circle-link) ,
+    .terminal {
+      width: 100%;
+    }
+
+    .card:not(.highlight-card) {
+      height: 16px;
+      margin: 8px 0;
+    }
+
+    .card.highlight-card span {
+      margin-left: 72px;
+    }
+
+    svg#rocket-smoke {
+      right: 120px;
+      transform: rotate(-5deg);
+    }
+  }
+
+  @media screen and (max-width: 575px) {
+    svg#rocket-smoke {
+      display: none;
+      visibility: hidden;
+    }
+  }
+</style>
+
+<!-- Toolbar -->
+<div class="toolbar" role="banner">
+  <svg id="logo" viewBox="-5.724 -43.601 2000 600">
+    <path d="M934.957,149.221c-10.479-0.345-19.253,7.869-19.599,18.348c-0.014,0.417-0.014,0.834,0,1.251v94.24
+      c-45.47-36.517-111.933-29.258-148.449,16.211c-15.064,18.758-23.271,42.096-23.264,66.153
+      c-0.996,58.292,45.451,106.354,103.744,107.351c58.292,0.996,106.354-45.451,107.351-103.743c0.021-1.203,0.021-2.405,0-3.607
+      V168.913c0.157-5.29-1.933-10.399-5.753-14.061c-3.741-3.658-8.799-5.655-14.03-5.538 M910.158,370.839
+      c-6.741,15.855-19.321,28.513-35.136,35.352c-16.569,7.015-35.274,7.015-51.844,0c-15.782-6.775-28.314-19.418-34.951-35.26
+      c-6.935-16.383-6.935-34.876,0-51.258c6.651-15.789,19.187-28.368,34.951-35.075c16.569-7.015,35.274-7.015,51.844,0
+      c15.814,6.839,28.395,19.495,35.136,35.352c6.933,16.319,6.933,34.755,0,51.074"></path>
+    <path d="M1155.344,270.69c-41.243-41.206-108.082-41.176-149.288,0.067c-19.769,19.785-30.876,46.606-30.886,74.574
+      c-0.996,58.293,45.451,106.355,103.744,107.352c58.292,0.996,106.354-45.452,107.351-103.744c0.021-1.202,0.021-2.404,0-3.607
+      c0.009-13.882-2.645-27.637-7.815-40.521C1173.124,291.998,1165.265,280.393,1155.344,270.69 M1141.714,370.746
+      c-3.371,7.823-8.17,14.95-14.153,21.015c-6.036,6.063-13.166,10.929-21.015,14.337c-16.558,7.017-35.254,7.017-51.812,0
+      c-15.8-6.76-28.347-19.406-34.982-35.259c-6.935-16.383-6.935-34.876,0-51.259c6.67-15.765,19.218-28.312,34.982-34.982
+      c16.558-7.017,35.254-7.017,51.812,0c7.849,3.408,14.979,8.273,21.015,14.338c5.983,6.063,10.782,13.19,14.153,21.014
+      c6.893,16.327,6.893,34.747,0,51.074"></path>
+    <path d="M1591.747,259.368c0.013-2.595-0.521-5.163-1.568-7.538c-1.066-2.279-2.513-4.36-4.277-6.154
+      c-1.742-1.816-3.836-3.261-6.153-4.246c-2.448-1.01-5.073-1.522-7.723-1.508c-3.742-0.025-7.411,1.044-10.554,3.077l-112.7,73.319
+      V169.097c0.1-5.27-1.982-10.347-5.753-14.03c-3.626-3.81-8.68-5.929-13.938-5.846c-10.857-0.068-19.715,8.679-19.783,19.537
+      c0,0.083,0,0.165,0,0.247v261.983c-0.063,5.236,2.016,10.271,5.754,13.938c3.653,3.823,8.741,5.943,14.029,5.846
+      c5.241,0.085,10.276-2.037,13.876-5.846c3.738-3.667,5.817-8.702,5.754-13.938v-67.934l22.983-15.076l87.103,97.81
+      c3.528,3.393,8.275,5.223,13.168,5.076c2.65,0.03,5.278-0.483,7.723-1.508c2.322-0.962,4.418-2.397,6.153-4.215
+      c1.792-1.841,3.241-3.987,4.276-6.338c1.048-2.375,1.582-4.943,1.57-7.538c0.012-5.112-1.938-10.035-5.446-13.753l-80.979-91.226
+      l78.949-51.258C1589.31,271.505,1592.174,265.553,1591.747,259.368"></path>
+    <path d="M1264.752,298.505c6.085-6.016,13.258-10.818,21.138-14.153c8.16-3.472,16.945-5.23,25.813-5.169
+      c7.851-0.072,15.646,1.326,22.983,4.123c7.353,2.957,14.163,7.116,20.152,12.307c3.641,2.9,8.176,4.445,12.83,4.369
+      c5.304,0.223,10.459-1.786,14.215-5.538c3.697-3.768,5.707-8.876,5.568-14.153c0.065-5.729-2.428-11.188-6.8-14.892
+      c-18.885-16.903-43.454-26.056-68.796-25.629c-58.301,0-105.562,47.262-105.562,105.562
+      c-0.146,58.216,46.929,105.527,105.145,105.674c25.412,0.063,49.992-9.056,69.214-25.679c3.965-3.773,6.192-9.019,6.153-14.491
+      c0.346-10.479-7.868-19.253-18.347-19.599c-0.417-0.014-0.835-0.014-1.252,0c-4.485,0.02-8.849,1.463-12.461,4.123
+      c-5.892,5.189-12.65,9.304-19.968,12.152c-7.345,2.762-15.137,4.139-22.983,4.062c-8.867,0.062-17.653-1.697-25.813-5.169
+      c-7.873-3.346-15.045-8.147-21.137-14.152c-25.862-25.708-25.988-67.514-0.281-93.376c0.094-0.094,0.188-0.187,0.281-0.28"></path>
+    <path d="M1983.262,252.969c-3.813-3.578-8.345-6.304-13.292-8c-5.657-2.031-11.532-3.394-17.506-4.061
+      c-5.91-0.726-11.859-1.096-17.814-1.108c-12.084-0.037-24.08,2.045-35.443,6.154c-11.137,4.061-21.531,9.923-30.768,17.353v-3.938
+      c-0.431-10.883-9.603-19.357-20.486-18.927c-10.279,0.406-18.521,8.647-18.927,18.927v171.897
+      c0.43,10.884,9.602,19.357,20.485,18.928c10.28-0.406,18.521-8.647,18.928-18.928v-85.934c-0.059-8.877,1.699-17.673,5.168-25.844
+      c3.318-7.836,8.113-14.96,14.123-20.983c6.047-6.003,13.178-10.806,21.014-14.153c8.172-3.472,16.967-5.23,25.845-5.169
+      c8.825-0.087,17.587,1.511,25.813,4.707c2.599,1.251,5.427,1.953,8.308,2.062c2.649,0.024,5.276-0.489,7.723-1.508
+      c2.319-0.98,4.413-2.425,6.153-4.245c1.758-1.793,3.194-3.874,4.246-6.153c1.068-2.434,1.614-5.065,1.6-7.723
+      c0.191-4.952-1.732-9.751-5.291-13.2"></path>
+    <path d="M1800.104,304.966c-16.765-39.188-55.187-64.69-97.81-64.919c-58.283-0.017-105.545,47.217-105.562,105.501
+      c0,0.01,0,0.021,0,0.03c-0.011,58.318,47.256,105.604,105.573,105.614c25.317,0.005,49.795-9.087,68.97-25.619
+      c0.277-0.276,0.708-0.646,0.77-0.738c1.719-1.392,3.222-3.029,4.461-4.861c6.336-9.125,4.076-21.658-5.045-27.998
+      c-7.646-4.967-17.698-4.065-24.338,2.185c-0.646,0.585-2.492,2.308-2.799,2.554l-0.277,0.246
+      c-5.617,4.777-12.033,8.526-18.953,11.076c-7.32,2.58-15.037,3.851-22.798,3.754c-7.153,0.035-14.264-1.108-21.046-3.385
+      c-6.603-2.207-12.828-5.413-18.46-9.507c-5.612-4.105-10.544-9.068-14.614-14.707c-4.158-5.757-7.34-12.16-9.415-18.952h149.253
+      c5.237,0.119,10.299-1.891,14.029-5.569c3.839-3.637,5.934-8.745,5.754-14.03c0.12-13.913-2.504-27.714-7.723-40.612
+       M1638.729,326.041c1.972-6.798,5.094-13.208,9.229-18.952c4.095-5.648,9.059-10.612,14.707-14.707
+      c5.712-4.09,12.008-7.295,18.676-9.507c6.747-2.247,13.812-3.39,20.922-3.385c7.07-0.008,14.095,1.136,20.799,3.385
+      c13.307,4.422,24.901,12.887,33.167,24.214c4.221,5.737,7.445,12.145,9.538,18.952H1638.729z"></path>
+    <path d="M1915.942,422.343c-7.543,0.119-13.562,6.331-13.443,13.875s6.332,13.562,13.875,13.443
+      c7.495-0.118,13.494-6.254,13.445-13.75c-0.085-7.578-6.297-13.652-13.875-13.568
+      C1915.944,422.343,1915.943,422.343,1915.942,422.343 M1915.942,446.741c-5.975,0.272-11.039-4.352-11.311-10.326
+      c-0.271-5.976,4.352-11.04,10.327-11.312c5.975-0.271,11.039,4.352,11.311,10.327c0.009,0.19,0.013,0.382,0.011,0.573
+      c0.204,5.723-4.27,10.527-9.992,10.731C1916.173,446.739,1916.058,446.741,1915.942,446.741"></path>
+    <path d="M1919.081,436.342v-0.185c1.512-0.292,2.65-1.544,2.8-3.076c0.057-1.175-0.432-2.311-1.323-3.077
+      c-1.445-0.765-3.076-1.106-4.707-0.984c-1.743-0.024-3.484,0.12-5.2,0.431v13.538h3.077v-5.446h1.477
+      c1.754,0,2.554,0.646,2.83,2.154c0.184,1.143,0.536,2.252,1.047,3.292h3.415c-0.53-1.062-0.873-2.207-1.016-3.385
+      c-0.138-1.473-1.088-2.744-2.462-3.292 M1915.296,435.327h-1.508v-3.908c0.583-0.069,1.172-0.069,1.754,0
+      c1.97,0,2.893,0.831,2.893,2.062s-1.415,2-3.076,2"></path>
+    <path d="M707.494,193.557c-1.938-1.539-20.029-15.199-58.181-15.199c-10.074,0.044-20.127,0.908-30.061,2.584
+      c-7.384-50.612-49.228-75.288-51.104-76.395l-10.245-5.908l-6.738,9.723c-8.438,13.061-14.598,27.459-18.214,42.582
+      c-6.831,28.891-2.677,56.027,11.999,79.226c-17.722,9.876-46.151,12.307-51.904,12.522H22.367
+      c-12.294,0.017-22.27,9.952-22.337,22.245c-0.549,41.234,6.437,82.222,20.614,120.946c16.214,42.521,40.336,73.842,71.719,93.01
+      c35.167,21.537,92.302,33.844,157.067,33.844c29.258,0.092,58.461-2.556,87.226-7.907c39.986-7.342,78.463-21.318,113.839-41.352
+      c29.149-16.88,55.383-38.354,77.688-63.596c37.29-42.213,59.505-89.226,76.026-131.007c2.215,0,4.431,0,6.584,0
+      c40.828,0,65.935-16.338,79.78-30.029c9.201-8.732,16.384-19.369,21.045-31.167l2.923-8.553L707.494,193.557z"></path>
+    <path d="M65.995,228.909h63.073c3.042,0,5.507-2.466,5.507-5.507l0,0V167.22c0.017-3.042-2.435-5.521-5.476-5.538
+      c-0.01,0-0.021,0-0.031,0H65.995c-3.042,0-5.507,2.466-5.507,5.507c0,0.01,0,0.021,0,0.031v56.181
+      C60.488,226.443,62.953,228.909,65.995,228.909L65.995,228.909"></path>
+    <path d="M152.913,228.909h63.073c3.042,0,5.507-2.466,5.507-5.507l0,0V167.22c0.017-3.042-2.435-5.521-5.477-5.538
+      c-0.01,0-0.021,0-0.031,0h-63.073c-3.059,0-5.538,2.479-5.538,5.538v56.181C147.392,226.448,149.866,228.909,152.913,228.909"></path>
+    <path d="M241.153,228.909h63.073c3.042,0,5.507-2.466,5.507-5.507l0,0V167.22c0.017-3.042-2.435-5.521-5.477-5.538
+      c-0.01,0-0.021,0-0.031,0h-63.073c-3.042,0-5.507,2.466-5.507,5.507c0,0.01,0,0.021,0,0.031v56.181
+      C235.646,226.443,238.112,228.909,241.153,228.909L241.153,228.909"></path>
+    <path d="M328.348,228.909h63.073c3.047,0,5.521-2.46,5.538-5.507V167.22c0-3.059-2.479-5.538-5.538-5.538l0,0h-63.073
+      c-3.042,0-5.507,2.466-5.507,5.507c0,0.01,0,0.021,0,0.031v56.181C322.841,226.443,325.307,228.909,328.348,228.909L328.348,228.909
+      "></path>
+    <path d="M152.913,148.083h63.073c3.046-0.017,5.507-2.492,5.507-5.538V86.364c0-3.042-2.466-5.507-5.507-5.507l0,0h-63.073
+      c-3.046,0-5.521,2.46-5.538,5.507v56.181C147.392,145.597,149.861,148.066,152.913,148.083"></path>
+    <path d="M241.153,148.083h63.073c3.046-0.017,5.507-2.492,5.507-5.538V86.364c0-3.042-2.466-5.507-5.507-5.507l0,0h-63.073
+      c-3.042,0-5.507,2.466-5.507,5.507l0,0v56.181C235.646,145.591,238.107,148.066,241.153,148.083"></path>
+    <path d="M328.348,148.083h63.073c3.052-0.017,5.521-2.486,5.538-5.538V86.364c-0.017-3.047-2.491-5.507-5.538-5.507h-63.073
+      c-3.042,0-5.507,2.466-5.507,5.507l0,0v56.181C322.841,145.591,325.302,148.066,328.348,148.083"></path>
+    <path d="M328.348,67.227h63.073c3.047,0,5.521-2.461,5.538-5.507V5.507C396.942,2.46,394.468,0,391.421,0h-63.073
+      c-3.042,0-5.507,2.465-5.507,5.507l0,0v56.212C322.841,64.761,325.307,67.227,328.348,67.227"></path>
+    <path d="M416.312,228.909h63.073c3.047,0,5.521-2.46,5.538-5.507V167.22c0-3.059-2.479-5.538-5.538-5.538l0,0h-63.073
+      c-3.041,0-5.507,2.466-5.507,5.507c0,0.01,0,0.021,0,0.031v56.181C410.805,226.443,413.271,228.909,416.312,228.909"></path>
+  </svg>
+    <div class="spacer"></div>
+  <a aria-label="Docker on twitter" target="_blank" rel="noopener" href="https://twitter.com/Docker" title="Twitter">
+    
+    <svg id="twitter-logo" height="24" data-name="Logo — FIXED" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400">
+      <defs>
+        <style>
+          .cls-1 {
+            fill: none;
+          }
+
+          .cls-2 {
+            fill: #ffffff;
+          }
+        </style>
+      </defs>
+      <rect class="cls-1" width="400" height="400" />
+      <path class="cls-2" d="M153.62,301.59c94.34,0,145.94-78.16,145.94-145.94,0-2.22,0-4.43-.15-6.63A104.36,104.36,0,0,0,325,122.47a102.38,102.38,0,0,1-29.46,8.07,51.47,51.47,0,0,0,22.55-28.37,102.79,102.79,0,0,1-32.57,12.45,51.34,51.34,0,0,0-87.41,46.78A145.62,145.62,0,0,1,92.4,107.81a51.33,51.33,0,0,0,15.88,68.47A50.91,50.91,0,0,1,85,169.86c0,.21,0,.43,0,.65a51.31,51.31,0,0,0,41.15,50.28,51.21,51.21,0,0,1-23.16.88,51.35,51.35,0,0,0,47.92,35.62,102.92,102.92,0,0,1-63.7,22A104.41,104.41,0,0,1,75,278.55a145.21,145.21,0,0,0,78.62,23"
+      />
+    </svg>
+    
+  </a>
+</div>
+
+<div class="content" role="main">
+
+  <!-- Highlight Card -->
+  <div class="card highlight-card card-small">
+
+    <svg id="rocket" alt="Rocket Ship" xmlns="http://www.w3.org/2000/svg" width="101.678" height="101.678" viewBox="0 0 101.678 101.678">
+      <g id="Group_83" data-name="Group 83" transform="translate(-141 -696)">
+        <circle id="Ellipse_8" data-name="Ellipse 8" cx="50.839" cy="50.839" r="50.839" transform="translate(141 696)" fill="#dd0031"/>
+        <g id="Group_47" data-name="Group 47" transform="translate(165.185 720.185)">
+          <path id="Path_33" data-name="Path 33" d="M3.4,42.615a3.084,3.084,0,0,0,3.553,3.553,21.419,21.419,0,0,0,12.215-6.107L9.511,30.4A21.419,21.419,0,0,0,3.4,42.615Z" transform="translate(0.371 3.363)" fill="#fff"/>
+          <path id="Path_34" data-name="Path 34" d="M53.3,3.221A3.09,3.09,0,0,0,50.081,0,48.227,48.227,0,0,0,18.322,13.437c-6-1.666-14.991-1.221-18.322,7.218A33.892,33.892,0,0,1,9.439,25.1l-.333.666a3.013,3.013,0,0,0,.555,3.553L23.985,43.641a2.9,2.9,0,0,0,3.553.555l.666-.333A33.892,33.892,0,0,1,32.647,53.3c8.55-3.664,8.884-12.326,7.218-18.322A48.227,48.227,0,0,0,53.3,3.221ZM34.424,9.772a6.439,6.439,0,1,1,9.106,9.106,6.368,6.368,0,0,1-9.106,0A6.467,6.467,0,0,1,34.424,9.772Z" transform="translate(0 0.005)" fill="#fff"/>
+        </g>
+      </g>
+    </svg>
+
+    <span>{{ title }} is running!</span>
+
+    <svg id="rocket-smoke" alt="Rocket Ship Smoke" xmlns="http://www.w3.org/2000/svg" width="516.119" height="1083.632" viewBox="0 0 516.119 1083.632">
+      <path id="Path_40" data-name="Path 40" d="M644.6,141S143.02,215.537,147.049,870.207s342.774,201.755,342.774,201.755S404.659,847.213,388.815,762.2c-27.116-145.51-11.551-384.124,271.9-609.1C671.15,139.365,644.6,141,644.6,141Z" transform="translate(-147.025 -140.939)" fill="#f5f5f5"/>
+    </svg>
+
+  </div>
+
+  <!-- Resources -->
+  <h2>Resources</h2>
+  <p>Here are some links to help you get started:</p>
+
+  <div class="card-container">
+    <a class="card" target="_blank" rel="noopener" href="https://www.docker.com/resources/what-container">
+      <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z"/></svg>
+
+      <span>What is a Container?</span>
+
+      <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>    </a>
+
+    <a class="card" target="_blank" rel="noopener" href="https://docs.docker.com/engine/docker-overview/">
+      <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"/></svg>
+
+      <span>Docker overview</span>
+
+      <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+    </a>
+
+    <a class="card" target="_blank" rel="noopener" href="https://docs.docker.com/reference/">
+      <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M3 6c-.55 0-1 .45-1 1v13c0 1.1.9 2 2 2h13c.55 0 1-.45 1-1s-.45-1-1-1H5c-.55 0-1-.45-1-1V7c0-.55-.45-1-1-1zm17-4H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-2 9h-8c-.55 0-1-.45-1-1s.45-1 1-1h8c.55 0 1 .45 1 1s-.45 1-1 1zm-4 4h-4c-.55 0-1-.45-1-1s.45-1 1-1h4c.55 0 1 .45 1 1s-.45 1-1 1zm4-8h-8c-.55 0-1-.45-1-1s.45-1 1-1h8c.55 0 1 .45 1 1s-.45 1-1 1z"/></svg>
+
+      <span>Docker reference</span>
+
+      <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+    </a>
+
+    <a class="card" target="_blank" rel="noopener" href="https://www.docker.com/get-started">
+      <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M13.5.67s.74 2.65.74 4.8c0 2.06-1.35 3.73-3.41 3.73-2.07 0-3.63-1.67-3.63-3.73l.03-.36C5.21 7.51 4 10.62 4 14c0 4.42 3.58 8 8 8s8-3.58 8-8C20 8.61 17.41 3.8 13.5.67zM11.71 19c-1.78 0-3.22-1.4-3.22-3.14 0-1.62 1.05-2.76 2.81-3.12 1.77-.36 3.6-1.21 4.62-2.58.39 1.29.59 2.65.59 4.04 0 2.65-2.15 4.8-4.8 4.8z"/></svg>
+
+      <span>Get Started with Docker</span>
+
+      <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+    </a>
+
+  </div>
+
+  <!-- Next Steps -->
+  <h2>Next Steps</h2>
+  <p>What do you want to do next with your app?</p>
+
+  <input type="hidden" #selection>
+
+  <div class="card-container">
+    <div class="card card-small" (click)="selection.value = 'component'" tabindex="0">
+        <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
+
+      <span>Build</span>
+    </div>
+
+    <div class="card card-small" (click)="selection.value = 'material'" tabindex="0">
+        <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
+
+      <span>Run</span>
+    </div>
+
+    <div class="card card-small" (click)="selection.value = 'dependency'" tabindex="0">
+      <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
+
+      <span>Entry into the container</span>
+    </div>
+
+    <div class="card card-small" (click)="selection.value = 'test'" tabindex="0">
+      <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
+
+      <span>Remove all the containers</span>
+    </div>
+
+    <div class="card card-small" (click)="selection.value = 'build'" tabindex="0">
+      <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
+
+      <span>Run for Developer</span>
+    </div>
+  </div>
+
+  <!-- Terminal -->
+  <div class="terminal" [ngSwitch]="selection.value">
+      <pre *ngSwitchDefault>docker build --rm -t hittten/docker-app .</pre>
+      <pre *ngSwitchCase="'material'">docker run --rm -p 80:80 --name docker-app hittten/docker-app</pre>
+      <pre *ngSwitchCase="'dependency'">docker exec -it docker-app /bin/bash</pre>
+      <pre *ngSwitchCase="'test'">docker rm $(docker ps -aq)</pre>
+      <pre *ngSwitchCase="'build'">docker run --rm -p 80:80 -v $(pwd):/usr/share/nginx/html/ \
+        --name docker-app hittten/docker-app</pre>
+  </div>
+
+  <!--&lt;!&ndash; Links &ndash;&gt;-->
+  <!--<div class="card-container">-->
+    <!--<a class="circle-link" title="Animations" href="https://angular.io/guide/animations" target="_blank" rel="noopener">-->
+      <!--<svg id="Group_20" data-name="Group 20" xmlns="http://www.w3.org/2000/svg" width="21.813" height="23.453" viewBox="0 0 21.813 23.453">-->
+        <!--<path id="Path_15" data-name="Path 15" d="M4099.584,972.736h0l-10.882,3.9,1.637,14.4,9.245,5.153,9.245-5.153,1.686-14.4Z" transform="translate(-4088.702 -972.736)" fill="#ffa726"/>-->
+        <!--<path id="Path_16" data-name="Path 16" d="M4181.516,972.736v23.453l9.245-5.153,1.686-14.4Z" transform="translate(-4170.633 -972.736)" fill="#fb8c00"/>-->
+        <!--<path id="Path_17" data-name="Path 17" d="M4137.529,1076.127l-7.7-3.723,4.417-2.721,7.753,3.723Z" transform="translate(-4125.003 -1058.315)" fill="#ffe0b2"/>-->
+        <!--<path id="Path_18" data-name="Path 18" d="M4137.529,1051.705l-7.7-3.723,4.417-2.721,7.753,3.723Z" transform="translate(-4125.003 -1036.757)" fill="#fff3e0"/>-->
+        <!--<path id="Path_19" data-name="Path 19" d="M4137.529,1027.283l-7.7-3.723,4.417-2.721,7.753,3.723Z" transform="translate(-4125.003 -1015.199)" fill="#fff"/>-->
+      <!--</svg>-->
+    <!--</a>-->
+
+    <!--<a class="circle-link" title="CLI" href="https://cli.angular.io/" target="_blank" rel="noopener">-->
+      <!--<svg alt="Angular CLI Logo" xmlns="http://www.w3.org/2000/svg" width="21.762" height="23.447" viewBox="0 0 21.762 23.447">-->
+        <!--<g id="Group_21" data-name="Group 21" transform="translate(0)">-->
+          <!--<path id="Path_20" data-name="Path 20" d="M2660.313,313.618h0l-10.833,3.9,1.637,14.4,9.2,5.152,9.244-5.152,1.685-14.4Z" transform="translate(-2649.48 -313.618)" fill="#37474f"/>-->
+          <!--<path id="Path_21" data-name="Path 21" d="M2741.883,313.618v23.447l9.244-5.152,1.685-14.4Z" transform="translate(-2731.05 -313.618)" fill="#263238"/>-->
+          <!--<path id="Path_22" data-name="Path 22" d="M2692.293,379.169h11.724V368.618h-11.724Zm11.159-.6h-10.608v-9.345h10.621v9.345Z" transform="translate(-2687.274 -362.17)" fill="#fff"/>-->
+          <!--<path id="Path_23" data-name="Path 23" d="M2709.331,393.688l.4.416,2.265-2.28-2.294-2.294-.4.4,1.893,1.893Z" transform="translate(-2702.289 -380.631)" fill="#fff"/>-->
+          <!--<rect id="Rectangle_12" data-name="Rectangle 12" width="3.517" height="0.469" transform="translate(9.709 13.744)" fill="#fff"/>-->
+        <!--</g>-->
+      <!--</svg>-->
+    <!--</a>-->
+
+    <!--<a class="circle-link" title="Augury" href="https://augury.rangle.io/" target="_blank" rel="noopener">-->
+      <!--<svg alt="Angular Augury Logo" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="21.81" height="23.447" viewBox="0 0 21.81 23.447">-->
+        <!--<defs>-->
+          <!--<clipPath id="clip-path">-->
+            <!--<rect id="Rectangle_13" data-name="Rectangle 13" width="10.338" height="10.27" fill="none"/>-->
+          <!--</clipPath>-->
+        <!--</defs>-->
+        <!--<g id="Group_25" data-name="Group 25" transform="translate(0)">-->
+          <!--<path id="Path_24" data-name="Path 24" d="M3780.155,311.417h0l-10.881,3.9,1.637,14.4,9.244,5.152,9.244-5.152,1.685-14.4Z" transform="translate(-3769.274 -311.417)" fill="#4a3493"/>-->
+          <!--<path id="Path_25" data-name="Path 25" d="M3862.088,311.417v23.447l9.244-5.152,1.685-14.4Z" transform="translate(-3851.207 -311.417)" fill="#311b92"/>-->
+          <!--<g id="Group_24" data-name="Group 24" transform="translate(6.194 6.73)" opacity="0.5">-->
+            <!--<g id="Group_23" data-name="Group 23" transform="translate(0 0)">-->
+              <!--<g id="Group_22" data-name="Group 22" clip-path="url(#clip-path)">-->
+                <!--<path id="Path_26" data-name="Path 26" d="M3832.4,373.252a5.168,5.168,0,1,1-5.828-4.383,5.216,5.216,0,0,1,2.574.3,3.017,3.017,0,1,0,3.252,4.086Z" transform="translate(-3822.107 -368.821)" fill="#fff"/>-->
+              <!--</g>-->
+            <!--</g>-->
+          <!--</g>-->
+          <!--<path id="Path_27" data-name="Path 27" d="M3830.582,370.848a5.162,5.162,0,1,1-3.254-4.086,3.017,3.017,0,1,0,3.252,4.086Z" transform="translate(-3814.311 -359.969)" fill="#fff"/>-->
+        <!--</g>-->
+      <!--</svg>-->
+    <!--</a>-->
+
+    <!--<a class="circle-link" title="Protractor" href="https://www.protractortest.org/" target="_blank" rel="noopener">-->
+      <!--<svg alt="Angular Protractor Logo" xmlns="http://www.w3.org/2000/svg" width="21.81" height="23.447" viewBox="0 0 21.81 23.447">-->
+        <!--<g id="Group_26" data-name="Group 26" transform="translate(0)">-->
+          <!--<path id="Path_28" data-name="Path 28" d="M4620.155,311.417h0l-10.881,3.9,1.637,14.4,9.244,5.152,9.244-5.152,1.685-14.4Z" transform="translate(-4609.274 -311.417)" fill="#e13439"/>-->
+          <!--<path id="Path_29" data-name="Path 29" d="M4702.088,311.417v23.447l9.244-5.152,1.685-14.4Z" transform="translate(-4691.207 -311.417)" fill="#b52f32"/>-->
+          <!--<path id="Path_30" data-name="Path 30" d="M4651.044,369.58v-.421h1.483a7.6,7.6,0,0,0-2.106-5.052l-1.123,1.123-.3-.3,1.122-1.121a7.588,7.588,0,0,0-4.946-2.055v1.482h-.421v-1.485a7.589,7.589,0,0,0-5.051,2.058l1.122,1.121-.3.3-1.123-1.123a7.591,7.591,0,0,0-2.106,5.052h1.482v.421h-1.489v1.734h15.241V369.58Zm-10.966-.263a4.835,4.835,0,0,1,9.67,0Z" transform="translate(-4634.008 -355.852)" fill="#fff"/>-->
+        <!--</g>-->
+      <!--</svg>-->
+    <!--</a>-->
+
+    <!--<a class="circle-link" title="Find a Local Meetup" href="https://www.meetup.com/find/?keywords=angular" target="_blank" rel="noopener">-->
+      <!--<svg alt="Meetup Logo" xmlns="http://www.w3.org/2000/svg" width="24.607" height="23.447" viewBox="0 0 24.607 23.447">-->
+        <!--<path id="logo&#45;&#45;mSwarm" d="M21.221,14.95A4.393,4.393,0,0,1,17.6,19.281a4.452,4.452,0,0,1-.8.069c-.09,0-.125.035-.154.117a2.939,2.939,0,0,1-2.506,2.091,2.868,2.868,0,0,1-2.248-.624.168.168,0,0,0-.245-.005,3.926,3.926,0,0,1-2.589.741,4.015,4.015,0,0,1-3.7-3.347,2.7,2.7,0,0,1-.043-.38c0-.106-.042-.146-.143-.166a3.524,3.524,0,0,1-1.516-.69A3.623,3.623,0,0,1,2.23,14.557a3.66,3.66,0,0,1,1.077-3.085.138.138,0,0,0,.026-.2,3.348,3.348,0,0,1-.451-1.821,3.46,3.46,0,0,1,2.749-3.28.44.44,0,0,0,.355-.281,5.072,5.072,0,0,1,3.863-3,5.028,5.028,0,0,1,3.555.666.31.31,0,0,0,.271.03A4.5,4.5,0,0,1,18.3,4.7a4.4,4.4,0,0,1,1.334,2.751,3.658,3.658,0,0,1,.022.706.131.131,0,0,0,.1.157,2.432,2.432,0,0,1,1.574,1.645,2.464,2.464,0,0,1-.7,2.616c-.065.064-.051.1-.014.166A4.321,4.321,0,0,1,21.221,14.95ZM13.4,14.607a2.09,2.09,0,0,0,1.409,1.982,4.7,4.7,0,0,0,1.275.221,1.807,1.807,0,0,0,.9-.151.542.542,0,0,0,.321-.545.558.558,0,0,0-.359-.534,1.2,1.2,0,0,0-.254-.078c-.262-.047-.526-.086-.787-.138a.674.674,0,0,1-.617-.75,3.394,3.394,0,0,1,.218-1.109c.217-.658.509-1.286.79-1.918a15.609,15.609,0,0,0,.745-1.86,1.95,1.95,0,0,0,.06-1.073,1.286,1.286,0,0,0-1.051-1.033,1.977,1.977,0,0,0-1.521.2.339.339,0,0,1-.446-.042c-.1-.092-.2-.189-.307-.284a1.214,1.214,0,0,0-1.643-.061,7.563,7.563,0,0,1-.614.512A.588.588,0,0,1,10.883,8c-.215-.115-.437-.215-.659-.316a2.153,2.153,0,0,0-.695-.248A2.091,2.091,0,0,0,7.541,8.562a9.915,9.915,0,0,0-.405.986c-.559,1.545-1.015,3.123-1.487,4.7a1.528,1.528,0,0,0,.634,1.777,1.755,1.755,0,0,0,1.5.211,1.35,1.35,0,0,0,.824-.858c.543-1.281,1.032-2.584,1.55-3.875.142-.355.28-.712.432-1.064a.548.548,0,0,1,.851-.24.622.622,0,0,1,.185.539,2.161,2.161,0,0,1-.181.621c-.337.852-.68,1.7-1.018,2.552a2.564,2.564,0,0,0-.173.528.624.624,0,0,0,.333.71,1.073,1.073,0,0,0,.814.034,1.22,1.22,0,0,0,.657-.655q.758-1.488,1.511-2.978.35-.687.709-1.37a1.073,1.073,0,0,1,.357-.434.43.43,0,0,1,.463-.016.373.373,0,0,1,.153.387.7.7,0,0,1-.057.236c-.065.157-.127.316-.2.469-.42.883-.846,1.763-1.262,2.648A2.463,2.463,0,0,0,13.4,14.607Zm5.888,6.508a1.09,1.09,0,0,0-2.179.006,1.09,1.09,0,0,0,2.179-.006ZM1.028,12.139a1.038,1.038,0,1,0,.01-2.075,1.038,1.038,0,0,0-.01,2.075ZM13.782.528a1.027,1.027,0,1,0-.011,2.055A1.027,1.027,0,0,0,13.782.528ZM22.21,6.95a.882.882,0,0,0-1.763.011A.882.882,0,0,0,22.21,6.95ZM4.153,4.439a.785.785,0,1,0,.787-.78A.766.766,0,0,0,4.153,4.439Zm8.221,18.22a.676.676,0,1,0-.677.666A.671.671,0,0,0,12.374,22.658ZM22.872,12.2a.674.674,0,0,0-.665.665.656.656,0,0,0,.655.643.634.634,0,0,0,.655-.644A.654.654,0,0,0,22.872,12.2ZM7.171-.123A.546.546,0,0,0,6.613.43a.553.553,0,1,0,1.106,0A.539.539,0,0,0,7.171-.123ZM24.119,9.234a.507.507,0,0,0-.493.488.494.494,0,0,0,.494.494.48.48,0,0,0,.487-.483A.491.491,0,0,0,24.119,9.234Zm-19.454,9.7a.5.5,0,0,0-.488-.488.491.491,0,0,0-.487.5.483.483,0,0,0,.491.479A.49.49,0,0,0,4.665,18.936Z" transform="translate(0 0.123)" fill="#f64060"/>-->
+      <!--</svg>-->
+    <!--</a>-->
+
+    <!--<a class="circle-link" title="Join the Conversation on Gitter" href="https://gitter.im/angular/angular" target="_blank" rel="noopener">-->
+      <!--<svg alt="Gitter Logo" xmlns="http://www.w3.org/2000/svg" width="19.447" height="19.447" viewBox="0 0 19.447 19.447">-->
+        <!--<g id="Group_40" data-name="Group 40" transform="translate(-1612 -405)">-->
+          <!--<rect id="Rectangle_19" data-name="Rectangle 19" width="19.447" height="19.447" transform="translate(1612 405)" fill="#e60257"/>-->
+          <!--<g id="gitter" transform="translate(1617.795 408.636)">-->
+            <!--<g id="Group_33" data-name="Group 33" transform="translate(0 0)">-->
+              <!--<rect id="Rectangle_15" data-name="Rectangle 15" width="1.04" height="9.601" transform="translate(2.304 2.324)" fill="#fff"/>-->
+              <!--<rect id="Rectangle_16" data-name="Rectangle 16" width="1.04" height="9.601" transform="translate(4.607 2.324)" fill="#fff"/>-->
+              <!--<rect id="Rectangle_17" data-name="Rectangle 17" width="1.04" height="4.648" transform="translate(6.91 2.324)" fill="#fff"/>-->
+              <!--<rect id="Rectangle_18" data-name="Rectangle 18" width="1.04" height="6.971" transform="translate(0 0)" fill="#fff"/>-->
+            <!--</g>-->
+          <!--</g>-->
+        <!--</g>-->
+      <!--</svg>-->
+    <!--</a>-->
+  <!--</div>-->
+
+  <!-- Footer -->
+  <footer>
+      Love Docker?&nbsp;
+      <a href="https://github.com/hittten/docker-app" target="_blank" rel="noopener"> Give our repo a star.
+        <div class="github-star-badge">
+            <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M0 0h24v24H0z" fill="none"/><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+          Star
+        </div>
+      </a>
+      <a href="https://github.com/hittten/docker-app" target="_blank" rel="noopener">
+        <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z" fill="#1976d2"/><path d="M0 0h24v24H0z" fill="none"/></svg>
+      </a>
+  </footer>
+
+  <svg id="clouds" alt="Gray Clouds Background" xmlns="http://www.w3.org/2000/svg" width="2611.084" height="485.677" viewBox="0 0 2611.084 485.677">
+    <path id="Path_39" data-name="Path 39" d="M2379.709,863.793c10-93-77-171-168-149-52-114-225-105-264,15-75,3-140,59-152,133-30,2.83-66.725,9.829-93.5,26.25-26.771-16.421-63.5-23.42-93.5-26.25-12-74-77-130-152-133-39-120-212-129-264-15-54.084-13.075-106.753,9.173-138.488,48.9-31.734-39.726-84.4-61.974-138.487-48.9-52-114-225-105-264,15a162.027,162.027,0,0,0-103.147,43.044c-30.633-45.365-87.1-72.091-145.206-58.044-52-114-225-105-264,15-75,3-140,59-152,133-53,5-127,23-130,83-2,42,35,72,70,86,49,20,106,18,157,5a165.625,165.625,0,0,0,120,0c47,94,178,113,251,33,61.112,8.015,113.854-5.72,150.492-29.764a165.62,165.62,0,0,0,110.861-3.236c47,94,178,113,251,33,31.385,4.116,60.563,2.495,86.487-3.311,25.924,5.806,55.1,7.427,86.488,3.311,73,80,204,61,251-33a165.625,165.625,0,0,0,120,0c51,13,108,15,157-5a147.188,147.188,0,0,0,33.5-18.694,147.217,147.217,0,0,0,33.5,18.694c49,20,106,18,157,5a165.625,165.625,0,0,0,120,0c47,94,178,113,251,33C2446.709,1093.793,2554.709,922.793,2379.709,863.793Z" transform="translate(142.69 -634.312)" fill="#eee"/>
+  </svg>
+
+</div>
+
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+<!-- * * * * * * * * * * * The content above * * * * * * * * * * * -->
+<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * -->
+<!-- * * * * * * * * * * and can be replaced. * * * * * * * * * * * -->
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+<!-- * * * * * * * * * * End of Placeholder * * * * * * * * * * * -->
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+
+

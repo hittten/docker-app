@@ -4,7 +4,7 @@
 `docker build --rm -t hittten/docker-app .`
 
 ## Run
-`docker run -p 80:80 --name docker-app hittten/docker-app`
+`docker run --rm -p 80:80 --name docker-app hittten/docker-app`
 
 ## Entry into the container
 `docker exec -it docker-app /bin/bash`
