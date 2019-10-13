@@ -4,8 +4,7 @@
 #builder
 FROM node:10 as builder
 
-RUN npm install -g npm@v6.12.0 && \
-    npm install -g @angular/cli@8.3.9
+RUN npm install -g npm@v6.12.0 @angular/cli@8.3.9
 
 WORKDIR /app
 

@@ -1,0 +1,12 @@
+version: "3.7"
+services:
+  app:
+    build: .
+    ports:
+      - 80:80
+    depends_on:
+      - api
+  api:
+    image: hittten/docker-api
+    ports:
+      - 3000:3000
