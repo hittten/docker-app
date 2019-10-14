@@ -10,11 +10,15 @@ services:
     image: hittten/docker-api
     ports:
       - 3000:3000
+    environment:
+      DB_HOST: db
+      DB_USER: admin
+      DB_PASS: 12345
     depends_on:
-      - mongo
-  mongo:
+      - db
+  db:
     image: mongo
     restart: always
     environment:
-      MONGO_INITDB_ROOT_USERNAME: root
-      MONGO_INITDB_ROOT_PASSWORD: example
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: 12345
