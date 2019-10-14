@@ -172,7 +172,7 @@
   }
 
   .message {
-    margin: 25px;
+    margin: 5px;
     padding: 10px;
     background: lightgreen;
     color: darkgreen;
@@ -626,6 +626,13 @@
   <ng-template #loading>
     <img class="spinner" src="assets/spinner.gif" alt="loading...">
   </ng-template>
+  <div class="message" *ngFor="let message of messages">
+    {{message.message}}
+  </div>
+  <label>
+    new message
+    <input #message type="text"> <button (click)="addMessage(message.value)">add</button>
+  </label>
   <footer>
       Love Docker?&nbsp;
       <a href="https://github.com/hittten/docker-app" target="_blank" rel="noopener"> Give our repo a star.

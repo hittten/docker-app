@@ -2,6 +2,11 @@ import {Component} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {environment} from '../environments/environment';
 
+interface Message {
+  message: string,
+  date: Date,
+}
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -9,8 +14,18 @@ import {environment} from '../environments/environment';
 })
 export class AppComponent {
   title = 'docker-app';
-  message$ = this.http.get<{ message: string }>(environment.apiUrl + '/hello/');
+  message$ = this.http.get<Message>(environment.apiUrl + '/hello/');
+  messages: [Message];
 
   constructor(private http: HttpClient) {
+    this.http.get<[Message]>(environment.apiUrl + '/messages/').subscribe(messages => {
+      this.messages = messages;
+    });
+  }
+
+  addMessage(message: string) {
+    this.http.post<Message>(environment.apiUrl + '/messages/', {
+      message,
+    }).subscribe((newMessage) => this.messages.push(newMessage));
   }
 }
