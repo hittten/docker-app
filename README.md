@@ -13,4 +13,4 @@
 `docker rm $(docker ps -aq)`
 
 ## Run for developers
-`docker run --rm -p 80:80 -v $(pwd)/dist/docker-app:/usr/share/nginx/html/ --name docker-app hittten/docker-app`
+`docker-compose up -f docker-compose-dev.yml`

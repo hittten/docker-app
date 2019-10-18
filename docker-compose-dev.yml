@@ -1,0 +1,38 @@
+#docker-compose reference https://docs.docker.com/compose/compose-file/
+
+version: "3.7"
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile-dev
+    volumes:
+      - .:/app
+      - /app/node_modules
+    ports:
+      - 4200:4200
+    depends_on:
+      - api
+  api:
+    image: hittten/docker-api
+    ports:
+      - 3000:3000
+    environment:
+      DB_HOST: db
+      DB_USER: admin
+      DB_PASS: 12345
+    depends_on:
+      - db
+  db:
+    image: mongo
+    restart: always
+    volumes:
+      - datadb:/data/db
+      - configdb:/data/configdb
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: 12345
+
+volumes:
+  datadb:
+  configdb:
