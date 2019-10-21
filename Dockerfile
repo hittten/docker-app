@@ -20,3 +20,8 @@ FROM nginx
 WORKDIR /usr/share/nginx/html
 
 COPY --from=builder /app/dist/docker-app/ ./
+
+COPY docker-entrypoint.sh /usr/local/bin/
+ENTRYPOINT ["docker-entrypoint.sh"]
+
+CMD ["nginx", "-g", "daemon off;"]
