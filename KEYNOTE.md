@@ -33,8 +33,8 @@ Accelerate how you build, share and run modern applications
 - Try to install something, and rerun the container
 - Learn about what happened.
 - Now with some volume and port:
-    * PowerShell `docker run --rm -p 80:80 -v ${pwd}:/usr/share/nginx/html/ nginx`
-    * Bash `docker run --rm -p 80:80 -v $(pwd):/usr/share/nginx/html/ nginx`
+  * PowerShell `docker run --rm -p 80:80 -v ${pwd}:/usr/share/nginx/html/ nginx`
+  * Bash `docker run --rm -p 80:80 -v $(pwd):/usr/share/nginx/html/ nginx`
 - Remove all containers: `docker rm $(docker ps -aq)`
 - Manage images: `docker image`
 - Run containers: `docker run`
@@ -71,8 +71,8 @@ move to demo `./move/to.sh dockerfile`
 - Run `docker run --rm -p 80:80 --name my-app docker-app`
 - Entry into the container `docker exec -it my-app /bin/bash`
 - Run with volume (for developers):
-    * PowerShell `docker run --rm -p 80:80 -v ${pwd}:/usr/share/nginx/html/ --name my-app docker-app`
-    * Bash `docker run --rm -p 80:80 -v $(pwd):/usr/share/nginx/html/ --name my-app docker-app`
+  * PowerShell `docker run --rm -p 80:80 -v ${pwd}:/usr/share/nginx/html/ --name my-app docker-app`
+  * Bash `docker run --rm -p 80:80 -v $(pwd):/usr/share/nginx/html/ --name my-app docker-app`
 
 #### Hands On
 
@@ -85,3 +85,20 @@ Dockerize front npm App: move to practice `./move/to.sh dockerize`
 - Run app all interfaces `npm start -- --host 0.0.0.0`
 
 Solution: `./move/to.sh dockerize-solution`
+
+---
+
+### docker-compose
+
+- [Reference](https://docs.docker.com/compose/compose-file/compose-file-v3/)
+
+#### Hands On
+
+- Try to translate the Dockerfile in a docker-compose.yml
+
+Solution: `./move/to.sh compose-solution`
+
+## Kubernetes
+
+Move to `./move/to.sh Kubernetes`
+

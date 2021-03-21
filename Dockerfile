@@ -3,7 +3,7 @@
 #Best practices https://docs.docker.com/develop/develop-images/dockerfile_best-practices/
 
 #builder
-FROM node:14 as builder
+FROM node:14-slim as builder
 
 WORKDIR /app
 

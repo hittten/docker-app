@@ -1,0 +1,44 @@
+input {
+  padding: 5px;
+  margin-right: 8px;
+  border: 1px solid lightgray;
+}
+
+.button {
+  outline: none;
+  cursor: pointer;
+  padding: 8px 15px;
+  background: dodgerblue;
+  border: none;
+  border-radius: 2px;
+  color: white;
+}
+
+.button:disabled {
+  background-color: lightblue;
+}
+
+.button:active {
+  background-color: deepskyblue;
+}
+
+.message {
+  margin: 5px;
+  padding: 5px 10px;
+  background: lightgreen;
+  color: darkgreen;
+  box-shadow: 2px 2px 2px gray;
+  border-radius: 2px;
+}
+
+.message.error {
+  background: #e99292;
+  color: darkred;
+}
+
+.spinner {
+  display: block;
+  width: 50px;
+  height: 50px;
+  margin: 25px;
+}
