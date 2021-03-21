@@ -80,6 +80,8 @@ Dockerize front npm App: move to practice `./move/to.sh dockerize`
 
 - Install dependencies `npm install`
 - Build app `npm run build`
-- public files `dist/docker-app`
+- Public files `dist/docker-app`
+- Run app `npm start`
+- Run app all interfaces `npm start -- --host 0.0.0.0`
 
 Solution: `./move/to.sh dockerize-solution`
