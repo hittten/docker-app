@@ -1,17 +1,27 @@
-# Docker app
+# DockerApp
+
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.5.
+
+## Development server
+
+Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+
+## Code scaffolding
+
+Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
 ## Build
-`docker build --rm -t hittten/docker-app .`
 
-## Run
-`docker run -p 80:80 --name docker-app hittten/docker-app`
+Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
 
-## Entry into the container
-`docker exec -it docker-app /bin/bash`
+## Running unit tests
 
-## Remove all containers   
-`docker rm $(docker ps -aq)`
+Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-## Run for developers
-- PowerShell `docker run --rm -p 80:80 -v ${pwd}:/usr/share/nginx/html/ --name my-app hittten/docker-app`
-- Bash `docker run --rm -p 80:80 -v $(pwd):/usr/share/nginx/html/ --name my-app hittten/docker-app`
+## Running end-to-end tests
+
+Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+
+## Further help
+
+To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
