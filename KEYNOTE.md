@@ -67,12 +67,12 @@ Accelerate how you build, share and run modern applications
 
 move to demo `./move/to.sh dockerfile`
 
-- Build `docker build --rm -t hittten/docker-app .`
-- Run `docker run --rm -p 80:80 --name my-app hittten/docker-app`
+- Build `docker build --rm -t docker-app .`
+- Run `docker run --rm -p 80:80 --name my-app docker-app`
 - Entry into the container `docker exec -it my-app /bin/bash`
 - Run with volume (for developers):
-    * PowerShell `docker run --rm -p 80:80 -v ${pwd}:/usr/share/nginx/html/ --name my-app hittten/docker-app`
-    * Bash `docker run --rm -p 80:80 -v $(pwd):/usr/share/nginx/html/ --name my-app hittten/docker-app`
+    * PowerShell `docker run --rm -p 80:80 -v ${pwd}:/usr/share/nginx/html/ --name my-app docker-app`
+    * Bash `docker run --rm -p 80:80 -v $(pwd):/usr/share/nginx/html/ --name my-app docker-app`
 
 #### Hands On
 
