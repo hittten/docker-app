@@ -1,0 +1,46 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: docker-api-deployment
+  labels:
+    app: docker-api
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: docker-api
+  template:
+    metadata:
+      labels:
+        app: docker-api
+    spec:
+      containers:
+        - name: docker-api
+          image: hittten/docker-express-api:2.0.0
+          ports:
+            - containerPort: 3000
+          env:
+            - name: dbHost
+              value: "localhost:27017"
+            - name: dbUser
+              value: "admin"
+            - name: dbPass
+              value: "1234"
+        - name: mongo
+          image: mongo
+          ports:
+            - containerPort: 27017
+          env:
+            - name: MONGO_INITDB_ROOT_USERNAME
+              value: "admin"
+            - name: MONGO_INITDB_ROOT_PASSWORD
+              value: "1234"
+          volumeMounts:
+            - name: mongo-db
+              mountPath: /data/db
+            - name: mongo-db
+              mountPath: /data/configdb
+      volumes:
+        - name: mongo-db
+          persistentVolumeClaim:
+            claimName: mongo-db

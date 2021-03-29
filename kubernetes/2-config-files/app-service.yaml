@@ -1,0 +1,13 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: docker-app-service
+spec:
+  ports:
+    - name: http
+      port: 80
+      targetPort: 80
+      nodePort: 30000
+  selector:
+    app: docker-app
+  type: LoadBalancer
