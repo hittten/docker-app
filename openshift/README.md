@@ -55,26 +55,25 @@ kubectl delete deployment docker-app-deployment
 ```
 
 ### Step 4
-Try to deploy api `hittten/docker-app:v3.0.0` image from dashboard.
+Try to deploy api `hittten/docker-app:2.0.0` image from dashboard.
 - Create a route for docker-app `docker-app-route` expose 80 port
 - Visit route url
 
 ### Step 4
-Try to deploy `hittten/docker-api` image from dashboard.
+Try to deploy `hittten/docker-express-api:2.0.0` image from dashboard.
 - Create a route for docker-app `docker-api-route` expose 3000 port
-- Visit route url with `/hello`, You will see "Hello API from node Express!"
 - Visit route url with `/messages`, Error? You need a mongodb with a volume remember?
 - Visit "Browse Catalog" into dashboard. find "MongoDB" and Create one with 1Gbi:
-  Database Service Name: mongodb
-  MongoDB Connection Username: admin
-  MongoDB Connection Password: admin
-  MongoDB Database Name: admin
-  MongoDB Admin Password: admin
+  * Database Service Name: mongodb
+  * MongoDB Connection Username: admin
+  * MongoDB Connection Password: admin
+  * MongoDB Database Name: admin
+  * MongoDB Admin Password: admin
 
-Now you need to change env vars for docker-api deployment:
-- Visit "Applications > Deployments > docker-api > Environment
-  DB_HOST:mongodb:27017
-  DB_USER:admin
-  DB_PASS:admin
+Now you need to change env vars for docker-express-api deployment:
+- Visit Applications > Deployments > docker-express-api > Environment
+  * dbHost:mongodb:27017
+  * dbUser:admin
+  * dbPass:admin
   
 Hit save, wait a moment and visit route url with `/messages`. Now is ok.
